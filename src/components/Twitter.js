@@ -21,6 +21,7 @@ export default function Twitter({ match: { params }, history }) {
     useEffect(() => {
         // fetch(`/${params}`).then(res => res.json()).then(data => {
            showPost();
+           console.log(rows1.length)
            setLoading(false);
            
     })
