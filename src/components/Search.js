@@ -4,12 +4,7 @@ import Twitter from "./Twitter"
 
 export default function Search( ) {
     const [value, setValue] = useState("");
-    var data = {
-        'id' : "1459563497403170824"
-    }
-    var data2 = {
-        'id' : "1376930480415727617"
-    }
+   
     var height = 50;
     const handleSubmit = (e) => {
         e.preventDefault();
