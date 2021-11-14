@@ -9,7 +9,7 @@ export default function Twitter({ match: { params }, history }) {
     
     var rows = [];
     const showPost = () => {
-        fetch(`/${params.value}`).then(res => res.json()).then(data => {
+        fetch(`/api/?searchTerm=${params.value}`).then(res => res.json()).then(data => {
             for (var i = 0; i < data.length; i++) {
                 rows.push(<TwitterTweetEmbed tweetId={data[i].id} key={i}/>);
                 
