@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 export default function Twitter({ match: { params }, history }) {
     const [isLoading, setLoading] = useState(true);
     const [rows1, setRows] = useState([])
+    const [metric, setMetric] = useState(0)
+    const [buy, setBuy] = useState("")
     
     var rows = [];
     const showPost = () => {
@@ -21,6 +23,14 @@ export default function Twitter({ match: { params }, history }) {
                 console.log(rows);
             }
             setRows(rows);
+            setMetric(data.weight)
+            if(data.weight > 20) {
+                setBuy("Buy!");
+            }
+            else{
+                setBuy("Don't Buy!")
+            }
+            
         })
         console.log("rows after fetch");
         console.log(rows1);
@@ -33,7 +43,7 @@ export default function Twitter({ match: { params }, history }) {
             console.log(rows1.length);
             return
         }   
-        showPost();
+        // showPost();
         setLoading(false);
         console.log("after setLoading");
         console.log(isLoading);
@@ -42,17 +52,9 @@ export default function Twitter({ match: { params }, history }) {
     })
 
     return isLoading ? ( <div>Loading</div>) : rows1.length ? (
-        <div className="container mx-auto">
-            <h1>{rows1}</h1>
-             {/* <TwitterTweetEmbed
-                tweetId={'933354946111705097'}
-            />
-            <TwitterTweetEmbed
-                tweetId={'933354946111705097'}
-            />
-            <TwitterTweetEmbed
-                tweetId={'933354946111705097'}
-            /> */}
+        <div className="container mx-auto bg-blue-100">
+            <h1 className="flex items-stretch max-w-2x1">{rows1}</h1>
+            <h1>Score is {metric} so {buy}</h1>
         </div>
     ) : (<div> There are no tweets</div>
     );
