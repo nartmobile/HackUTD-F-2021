@@ -3,3 +3,4 @@ twint/
 test.js
 test.py
 __pycache__/
+outputFiles/

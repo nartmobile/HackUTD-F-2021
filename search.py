@@ -6,21 +6,19 @@ def searchTweet(searchTerm):
     
     # get date
     dateToday = DT.date.today()
-    weekAgo = str(dateToday - DT.timedelta(days = 7))
+    oneDay = str(dateToday - DT.timedelta(days = 1))
 
     # search params
     c.Count = True
-    c.Custom["tweet"] = ["username", "tweet"]
+    c.Custom["tweet"] = ["username", "tweet", "id"]
     c.Filter_retweets = True
     c.Lowercase = True
     c.Output = "outputFiles"
     c.Search = str(searchTerm)
-    c.Since = weekAgo
+    c.Since = oneDay
     c.Store_json = True
-    c.Limit = 10
     c.Lang = "en"
-    # c.Format = "Username: {username}"
-    # c.Translate = True
+    c.Hide_output = True
     
     twint.run.Search(c)
 
@@ -31,6 +29,6 @@ def searchUser(name):
     c.Output = "outputFiles/usernames.json"
     c.Store_json = True
     c.Custom["user"] = ["name", "username", "followers", "verified"]
-    c.Format = "Username: {username}"
+    c.Hide_output = True
 
     twint.run.Lookup(c)

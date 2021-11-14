@@ -21,12 +21,7 @@ def __main__():
 
     for i in tweets:
         search.searchUser(str(i["username"]))
-    # for k,v in tweets.items():
-    #     if k == "username":
-    #         search.searchUser(str(v))
-            
 
-    print("test")
-         
-
+    print("Finished adding users")
+    
 __main__()
