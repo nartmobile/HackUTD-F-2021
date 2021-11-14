@@ -9,20 +9,35 @@ export default function Twitter({ match: { params }, history }) {
     
     var rows = [];
     const showPost = () => {
-        fetch(`/api/?searchTerm=${params.value}`).then(res => res.json()).then(data => {
-            for (var i = 0; i < data.length; i++) {
-                rows.push(<TwitterTweetEmbed tweetId={data[i].id} key={i}/>);
-                
+        console.log(params.value)
+        fetch('/api/' + new URLSearchParams({x: params.value})).then(res => res.json()).then(data => {
+        //fetch(`/api/${params.id}`).then(data => {
+            console.log(data);
+            console.log(data[0]);
+            console.log(data.tweets[0]);
+            // console.log(data.tweets[0].id);
+            for (var i = 0; i < data.tweets.length; i++) {
+                rows.push(<TwitterTweetEmbed tweetId={data.tweets[i].id} key={i}/>);
+                console.log(rows);
             }
             setRows(rows);
         })
+        console.log("rows after fetch");
+        console.log(rows1);
         }
     
     useEffect(() => {
+
         // fetch(`/${params}`).then(res => res.json()).then(data => {
-           showPost();
-           console.log(rows1.length)
-           setLoading(false);
+        if (isLoading == false) {
+            console.log(rows1.length);
+            return
+        }   
+        showPost();
+        setLoading(false);
+        console.log("after setLoading");
+        console.log(isLoading);
+        console.log(rows1.length);
            
     })
 

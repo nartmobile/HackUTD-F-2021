@@ -1,19 +1,28 @@
 from logging import debug
+from types import MethodType
 from flask import Flask
 import os, json, search, score
 
 app = Flask(__name__)
 
-@app.route('/api', methods=['GET'])
+@app.route('/api/<searchTerm>')
 def index(searchTerm):
-    searchTerm = request.args.get("searchTerm")
     if os.path.exists("./outputFiles/tweets.json"):
         os.remove("./outputFiles/tweets.json")
     if os.path.exists("./outputFiles/usernames.json"):
         os.remove("./outputFiles/usernames.json")
     
-    # run search by keyword
+    resultDict = {
+        "weight": 0,
+        "tweets": []
+    }
+    print("Before check")
+    print(searchTerm)
+    # run search by keyword, if undefined break
+    if len(str(searchTerm)) > 6:
+        return json.dumps(resultDict, indent = 4)
     search.searchTweet(str(searchTerm))
+    print("After check")
     
     # map tweets to author
     tweets = []
@@ -34,6 +43,7 @@ def index(searchTerm):
         "weight": weight,
         "tweets": tweets
     }
+    # return resultDict
     return json.dumps(resultDict, indent = 4)
 
 if __name__ == "__main__":
