@@ -28,7 +28,7 @@ export default function Search( ) {
         // });
     }
     return (
-        <div className="container mx-auto">
+        <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 container">
             <form className="px-3 py-4 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full" onSubmit={handleSubmit}>
             <input type="text"  onChange={(e) => setValue(e.target.value)}  placeholder="Search company name" className="px-3 py-4 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full" onSubmit={handleSubmit}/>
             </form>
