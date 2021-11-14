@@ -9,8 +9,8 @@ export default function Twitter({ match: { params }, history }) {
     
     var rows = [];
     const showPost = () => {
-        console.log(params.value)
-        fetch('/api/' + new URLSearchParams({x: params.value})).then(res => res.json()).then(data => {
+        console.log(params["id"])
+        fetch('/api/' + new URLSearchParams({x: params["id"]})).then(res => res.json()).then(data => {
         //fetch(`/api/${params.id}`).then(data => {
             console.log(data);
             console.log(data[0]);

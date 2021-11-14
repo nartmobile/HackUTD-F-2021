@@ -12,15 +12,15 @@ def index(searchTerm):
     if os.path.exists("./outputFiles/usernames.json"):
         os.remove("./outputFiles/usernames.json")
     
-    resultDict = {
-        "weight": 0,
-        "tweets": []
-    }
-    print("Before check")
-    print(searchTerm)
-    # run search by keyword, if undefined break
-    if len(str(searchTerm)) > 6:
-        return json.dumps(resultDict, indent = 4)
+    # resultDict = {
+    #     "weight": 0,
+    #     "tweets": []
+    # }
+    # print("Before check")
+    # print(searchTerm)
+    # # run search by keyword, if undefined break
+    # if len(str(searchTerm)) > 6:
+    #     return json.dumps(resultDict, indent = 4)
     search.searchTweet(str(searchTerm))
     print("After check")
     
