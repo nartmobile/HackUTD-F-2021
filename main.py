@@ -35,6 +35,6 @@ def __main__(searchTerm):
         json.dump(resultDict, f, ensure_ascii=False, indent = 4)
         
 
-__main__("$AAPL") # TODO incorporate serach term
+__main__("$MS") # TODO incorporate serach term
 
 print("--- %s seconds ---" % (time.time() - starttime))

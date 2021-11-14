@@ -19,7 +19,7 @@ def searchTweet(searchTerm):
     c.Store_json = True
     c.Lang = "en"
     c.Hide_output = True
-    c.Limit = 20 # TODO change limit
+    c.Limit = 100 # TODO change limit
     
     twint.run.Search(c)
 

@@ -1,5 +1,5 @@
 env/
 twint/
-test*.py
+test*
 __pycache__/
 outputFiles/
