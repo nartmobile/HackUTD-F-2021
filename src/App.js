@@ -1,11 +1,20 @@
 import './App.css';
 import NavBar from './components/navbar.js';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Search from './components/Search';
+import Twitter from './components/Twitter';
 
 function App() {
   return (
-    <div>
-      <NavBar/>
-    </div>
+    <Router>
+      <div>
+        <NavBar />
+        
+        <Route path="/" exact component={Search} />
+        <Route path="/twitter/:id" exact component={Twitter}/>
+        
+      </div>
+    </Router>
 
     /*
     <div className="App">
