@@ -7,7 +7,7 @@ export function NavBar() {
                 <a className="px-3 py-1 font-open-sans text-3xl mx-16 text-white hover:bg-blue-600" href="/">Home</a>
             </div>
             <div>
-                <a className="px-3 py-1 font-open-sans text-3xl mx-16 text-white hover:bg-blue-600" href="#aboutme">About Me</a>
+                <a className="px-3 py-1 font-open-sans text-3xl mx-16 text-white hover:bg-blue-600" href="/about">About</a>
             </div>
         </div>
     );

@@ -1,40 +1,20 @@
 import './App.css';
 import NavBar from './components/navbar';
-import Background from './components/background';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Search from './components/Search';
 import Twitter from './components/Twitter';
+import About from './components/About';
 
 function App() {
   return (
     <Router>
       <div>
-        <NavBar />
-        <Background />
-        
+        <NavBar/>
         <Route path="/" exact component={Search} />
         <Route path="/twitter/:id" exact component={Twitter}/>
-        
+        <Route path="/about" exact component={About}/>
       </div>
     </Router>
-
-    /*
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>*/
   );
 }
 

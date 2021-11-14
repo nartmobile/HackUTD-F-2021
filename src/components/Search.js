@@ -9,18 +9,8 @@ export default function Search( ) {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("submitted");
-        // console.log(value);
         window.location.href=`/twitter/${value}`;
-        
-        // <Twitter data={data} className={"h-" + height}/>
-        // <Twitter data={data2} className={"h-" + height + 100}/>
-        // fetch(`/${e}`).then(res => res.json()).then(data => {
-        //     for(var i = 0; i < data.length; i++)
-        //     {
-        //         <Twitter data={data[i]}/>
-        //     }
-            
-        // });
+    
     }
     return (
         <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 container">

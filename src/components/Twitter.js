@@ -11,24 +11,14 @@ export default function Twitter({ match: { params }, history }) {
     const showPost = () => {
         console.log(params["id"])
         fetch('/api/' + new URLSearchParams({x: params["id"]})).then(res => res.json()).then(data => {
-        //fetch(`/api/${params.id}`).then(data => {
-            console.log(data);
-            console.log(data[0]);
-            console.log(data.tweets[0]);
-            // console.log(data.tweets[0].id);
             for (var i = 0; i < data.tweets.length; i++) {
                 rows.push(<TwitterTweetEmbed tweetId={data.tweets[i].id} key={i}/>);
-                console.log(rows);
             }
             setRows(rows);
         })
-        console.log("rows after fetch");
-        console.log(rows1);
         }
     
     useEffect(() => {
-
-        // fetch(`/${params}`).then(res => res.json()).then(data => {
         if (isLoading == false) {
             console.log(rows1.length);
             return
@@ -42,18 +32,11 @@ export default function Twitter({ match: { params }, history }) {
     })
 
     return isLoading ? ( <div>Loading</div>) : rows1.length ? (
-        <div className="container mx-auto">
-            <h1>{rows1}</h1>
-             {/* <TwitterTweetEmbed
-                tweetId={'933354946111705097'}
-            />
-            <TwitterTweetEmbed
-                tweetId={'933354946111705097'}
-            />
-            <TwitterTweetEmbed
-                tweetId={'933354946111705097'}
-            /> */}
+        <div className="bg-blue-100">
+            <div className="container mx-auto">
+                <h1 className="flex items-stretch overflow-auto space-x-5">{rows1}</h1>
+            </div>
         </div>
-    ) : (<div> There are no tweets</div>
+    ) : (<div className="bg-blue-100 text-5xl font-bold absolute transform -translate-x-1/2 left-1/2 top-1/2 font-open-sans">Loading!</div>
     );
 }
