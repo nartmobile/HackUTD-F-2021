@@ -1,5 +1,6 @@
 import './App.css';
-import NavBar from './components/navbar.js';
+import NavBar from './components/navbar';
+import Background from './components/background';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Search from './components/Search';
 import Twitter from './components/Twitter';
@@ -9,6 +10,7 @@ function App() {
     <Router>
       <div>
         <NavBar />
+        <Background />
         
         <Route path="/" exact component={Search} />
         <Route path="/twitter/:id" exact component={Twitter}/>
