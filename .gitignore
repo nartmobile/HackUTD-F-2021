@@ -1,6 +1,5 @@
 env/
 twint/
-test.js
-test.py
+test*.py
 __pycache__/
 outputFiles/
